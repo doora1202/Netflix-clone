@@ -29,5 +29,5 @@ export const useProps = (fetchUrl: string) => {
     fetchData();
   }, [fetchUrl]);
 
-  return movies;
+  return {movies};
 };
