@@ -1,8 +1,6 @@
-// ① .envからAPI_KEYを取得
-const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-const BASE_URL = "/discover/tv?api_key=";
+export const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+export const BASE_URL = "/discover/tv?api_key=";
 
-// ② named export
 export const requests = {
   fetchTrending: `/trending/all/week?api_key=${API_KEY}&watch_region=JP&language=ja-JP`,
   fetchNetflixOriginals: `${BASE_URL}${API_KEY}&with_networks=213&watch_region=JP&language=ja`,
@@ -12,4 +10,6 @@ export const requests = {
   fetchKidsMovies: `${BASE_URL}${API_KEY}&with_genres=10762&watch_region=JP&language=ja-JP`,
   fetchRomanceMovies: `${BASE_URL}${API_KEY}&with_genres=10749&watch_region=JP&language=ja-JP`,
   fetchDocumentMovies: `${BASE_URL}${API_KEY}&with_genres=99&watch_region=JP&language=ja-JP`,
+  fetchMovieVideos: (movieId: string) =>
+    `/tv/${movieId}/videos?api_key=${API_KEY}`,
 };
